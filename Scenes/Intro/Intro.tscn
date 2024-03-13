@@ -1,0 +1,220 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmecutdbniw0"]
+
+[ext_resource type="Script" path="res://Scenes/Intro/Intro.gd" id="1_llcae"]
+[ext_resource type="FontFile" uid="uid://c6u6sxct38sso" path="res://Assets/Font/Born2bSportyFS.otf" id="1_q6k01"]
+[ext_resource type="Script" path="res://Scenes/Intro/StoryLabel.gd" id="2_xjjye"]
+[ext_resource type="Texture2D" uid="uid://dd0inyab7ro0m" path="res://Assets/Character/Bolt/OrangeRobot_SpriteSheet.png" id="4_bpe2i"]
+[ext_resource type="Script" path="res://Scenes/Intro/BubbleLabel.gd" id="5_jjw0p"]
+[ext_resource type="Texture2D" uid="uid://cfk8evsqrpmjq" path="res://Assets/Menu/Speechbubble.png" id="6_at8se"]
+[ext_resource type="Texture2D" uid="uid://oe75qrcq6rqw" path="res://Assets/Background/pssst_einfach_weiterscrollen.png" id="7_wcyd8"]
+
+[sub_resource type="Animation" id="Animation_1b5rk"]
+resource_name = "Intro"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Story:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PssstLassmichschlafen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BubbleLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Speechbubble:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_u32y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Story:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PssstLassmichschlafen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BubbleLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Speechbubble:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xynvx"]
+_data = {
+"Intro": SubResource("Animation_1b5rk"),
+"RESET": SubResource("Animation_u32y3")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_llcae")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xynvx")
+}
+
+[node name="Weiter" type="Button" parent="AnimationPlayer"]
+offset_left = 982.0
+offset_top = 576.0
+offset_right = 1125.0
+offset_bottom = 625.0
+theme_override_fonts/font = ExtResource("1_q6k01")
+theme_override_font_sizes/font_size = 21
+text = "Weiter"
+metadata/_edit_use_anchors_ = true
+
+[node name="Skip" type="Button" parent="AnimationPlayer"]
+offset_left = 33.0
+offset_top = 581.0
+offset_right = 176.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("1_q6k01")
+theme_override_font_sizes/font_size = 21
+text = "Überspring Intro"
+metadata/_edit_use_anchors_ = true
+
+[node name="Story" type="Label" parent="AnimationPlayer"]
+visible = false
+offset_left = 83.0
+offset_top = 48.0
+offset_right = 1062.0
+offset_bottom = 512.0
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("1_q6k01")
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3
+script = ExtResource("2_xjjye")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="AnimationPlayer/Story"]
+
+[node name="player" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(593, 556)
+scale = Vector2(16.7188, 16.7188)
+texture = ExtResource("4_bpe2i")
+hframes = 8
+vframes = 4
+
+[node name="BubbleLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 194.0
+offset_top = 69.0
+offset_right = 977.0
+offset_bottom = 394.0
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("1_q6k01")
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3
+script = ExtResource("5_jjw0p")
+
+[node name="Timer2" type="Timer" parent="BubbleLabel"]
+
+[node name="Speechbubble" type="Sprite2D" parent="."]
+position = Vector2(578.5, 235.4)
+scale = Vector2(15.0469, 13.6687)
+texture = ExtResource("6_at8se")
+
+[node name="PssstLassmichschlafen" type="Sprite2D" parent="."]
+position = Vector2(174, 51)
+texture = ExtResource("7_wcyd8")
+
+[connection signal="pressed" from="AnimationPlayer/Weiter" to="." method="_on_weiter_pressed"]
+[connection signal="pressed" from="AnimationPlayer/Skip" to="." method="_on_skip_pressed"]
+[connection signal="timeout" from="AnimationPlayer/Story/Timer" to="AnimationPlayer/Story" method="_on_timer_timeout"]
+[connection signal="timeout" from="BubbleLabel/Timer2" to="BubbleLabel" method="_on_timer_2_timeout"]

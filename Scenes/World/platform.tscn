@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cabja8cv4jg22"]
+
+[ext_resource type="Script" path="res://Scripts/platform.gd" id="1_3xbai"]
+[ext_resource type="Texture2D" uid="uid://c5hnhuumy2uhn" path="res://Assets/World/Ground/platform1.png" id="2_80kn0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lqoo"]
+size = Vector2(199, 19)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebtat"]
+radius = 53.3385
+
+[node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_3xbai")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.26167, 2.10884)
+texture = ExtResource("2_80kn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5lqoo")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="RepairArea" type="Area2D" parent="."]
+position = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RepairArea"]
+shape = SubResource("CircleShape2D_ebtat")
+
+[connection signal="body_entered" from="RepairArea" to="." method="_on_repair_area_body_entered"]
+[connection signal="body_exited" from="RepairArea" to="." method="_on_repair_area_body_exited"]

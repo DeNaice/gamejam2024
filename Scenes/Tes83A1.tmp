@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6bqolrur6wbk"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_71see"]
+[ext_resource type="Texture2D" uid="uid://dkbugdkbdjnop" path="res://Assets/OtherResources/Ziffernblatt.png" id="2_bnlv3"]
+[ext_resource type="PackedScene" uid="uid://cabja8cv4jg22" path="res://Scenes/World/platform.tscn" id="2_pwivh"]
+[ext_resource type="Texture2D" uid="uid://c0homcby5dw3n" path="res://Assets/clock-pointer/second_pointer.png" id="3_2fmam"]
+[ext_resource type="PackedScene" uid="uid://cpr8gahqiey4u" path="res://Scenes/Character/Bolt.tscn" id="3_mmd5m"]
+[ext_resource type="Texture2D" uid="uid://bjgyfhovh02cm" path="res://Assets/clock-pointer/minute_pointer.png" id="4_u3a3q"]
+[ext_resource type="Texture2D" uid="uid://bur83to5x862p" path="res://Assets/clock-pointer/hour_pointer.png" id="5_uhfhj"]
+
+[sub_resource type="TileSet" id="TileSet_3alnr"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_71see")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Clock" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(573, 322)
+
+[node name="Ziffernblatt" type="Sprite2D" parent="ParallaxBackground/Clock"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_bnlv3")
+
+[node name="sec_center" type="Node2D" parent="ParallaxBackground/Clock"]
+
+[node name="sec_pointer" type="Sprite2D" parent="ParallaxBackground/Clock/sec_center"]
+position = Vector2(0, -81)
+texture = ExtResource("3_2fmam")
+
+[node name="min_center" type="Node2D" parent="ParallaxBackground/Clock"]
+
+[node name="min_pointer" type="Sprite2D" parent="ParallaxBackground/Clock/min_center"]
+position = Vector2(0, -66)
+texture = ExtResource("4_u3a3q")
+
+[node name="h_center" type="Node2D" parent="ParallaxBackground/Clock"]
+
+[node name="h_pointer" type="Sprite2D" parent="ParallaxBackground/Clock/h_center"]
+position = Vector2(1, -34)
+texture = ExtResource("5_uhfhj")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_3alnr")
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Platform" parent="." instance=ExtResource("2_pwivh")]
+
+[node name="Platform2" parent="." instance=ExtResource("2_pwivh")]
+position = Vector2(824, 508)
+
+[node name="Platform3" parent="." instance=ExtResource("2_pwivh")]
+position = Vector2(523, 372)
+
+[node name="Platform4" parent="." instance=ExtResource("2_pwivh")]
+position = Vector2(247, 204)
+
+[node name="Platform5" parent="." instance=ExtResource("2_pwivh")]
+position = Vector2(796, 236)
+
+[node name="Ground" parent="." instance=ExtResource("2_pwivh")]
+position = Vector2(574, 650)
+scale = Vector2(6.12, 1)
+
+[node name="Bolt" parent="." instance=ExtResource("3_mmd5m")]
+position = Vector2(594, 599)
+scale = Vector2(3, 3)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd4x4dcchthha"]
+
+[ext_resource type="Script" path="res://Assets/Cutszene/Intro.gd" id="1_8dxi2"]
+[ext_resource type="Texture2D" uid="uid://dd0inyab7ro0m" path="res://Assets/Character/Bolt/OrangeRobot_SpriteSheet.png" id="1_t2jld"]
+[ext_resource type="Texture2D" uid="uid://co4cp352qkvh0" path="res://Assets/Background/abstract-textured-backgound.jpg" id="3_2utdn"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_8dxi2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Control" type="Node" parent="."]
+
+[node name="Gray Rectangle" type="Sprite2D" parent="Control"]
+position = Vector2(579.5, 321.75)
+scale = Vector2(0.197167, 0.112417)
+texture = ExtResource("3_2utdn")
+
+[node name="Sprites" type="Node" parent="Control"]
+
+[node name="Player" type="Sprite2D" parent="Control"]
+position = Vector2(214, 411)
+scale = Vector2(16, 16)
+texture = ExtResource("1_t2jld")
+hframes = 8
+vframes = 6
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1150.0
+offset_bottom = 620.0
+text = "Hier steht mein Beispieltext 
+Im Prinzip geht es in diesem Spiel darum das unser kleiner Roboter mit dem Namen Bolt in einer riesigen Uhr wohnt und verhindern muss das diese putput geht"
+horizontal_alignment = 1
+autowrap_mode = 1
